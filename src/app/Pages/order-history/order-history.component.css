@@ -1,0 +1,15 @@
+.table{
+    width: 60%;
+    text-align: center;
+    margin: auto;
+}
+
+.red-white{
+    background-color: rgb(249, 54, 54);
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 3px;
+    height: 6vh;
+    margin: auto;
+}

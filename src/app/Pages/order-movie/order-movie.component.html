@@ -1,0 +1,73 @@
+
+    <div class="display-container">
+        <div class="display-info">
+            <p class="text-parameter">Movie Name</p> 
+            <p class="small-info">{{movieToOrder.movieName}}</p>
+        </div>
+        <div class="display-info">
+            <p class="text-parameter">Booking Time</p>
+            <p class="small-info">{{bookingMovie.bookingTime}}</p>
+        </div>
+        <div class="display-info">
+            <p class="text-parameter">Booking Date</p>
+            <p class="small-info">{{bookingMovie.bookingDate}}</p>
+        </div>
+        <div class="display-info">
+            <p class="text-parameter">Movie Duration</p>
+            <p class="small-info">{{movieToOrder.duration}}</p>
+        </div>
+        <div class="display-info">
+            <p class="text-parameter">Seats Booked</p>
+        </div>
+        
+    </div>
+
+    <div class="display-container">
+        <form #orderMovieForm="ngForm" (ngSubmit)="onSubmit();" action="">
+            <div [hidden]="submitted">
+                <div class="form-group">
+                    <div class="form-input">
+                        <label class="form-input-text" for="cardType">Select Card</label>
+                        <select id="cardType" class="form-control" name="cardType"
+                        [(ngModel)]="orderToPlaced.cardType" #cardType="ngModel"
+                        required>
+                            <option value="Debit">Debit</option>
+                            <option value="Credit">Credit</option>
+                            <option value="Visa">Visa</option>
+                        </select>
+                    </div>
+                        <div [hidden]="cardType.valid" class="form-error">
+                            <div *ngIf="cardType.errors?.['required']">
+                                Card Type is required
+                            </div>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-input">
+                        <label class="form-input-text" for="bank">Bank</label>
+                        <select name="bank" id="bank" class="form-control"
+                        [(ngModel)]="orderToPlaced.bank" #bank="ngModel"
+                        required>
+                            <option value="ICICI">ICICI</option>
+                            <option value="Axis">Axis</option>
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <div [hidden]="bank.valid" class="form-error">
+                        <div *ngIf="bank.errors?.['required']">
+                            Bank is required
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-bottom: '2vh';">
+                    <h2>Total Price: &#8377;{{withoutDiscountPrice}} - &#8377;{{discountedPrice}} = &#8377;{{orderToPlaced.amount}}</h2>
+                </div>
+
+                <button type="submit" class="btn btn-success form-submit form-input"
+                [disabled]="!orderMovieForm.form.valid">
+                    Pay
+                </button>
+            </div>
+        </form>
+    </div>
