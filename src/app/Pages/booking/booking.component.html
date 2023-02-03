@@ -1,0 +1,34 @@
+<p>booking works!</p>
+<div class="container">
+  <form #bookingForm="ngForm" (ngSubmit)="">
+<div class="bookingdate">
+    <input type="date">
+</div><br>
+
+<h6 style="text-align: center;">choose your available Timings</h6>
+<div class="form-group">
+<div class="slot">
+      <label for="bookingTime"><input type="radio" name="show" value="firstshow"> 10:00</label>
+      <label><input type="radio" name="show" value="matinee"> 02:00</label>
+      <label><input type="radio" name="show" value="secondshow"> 09:00</label>
+  </div>
+</div>
+
+
+  <div class="movietype">
+    <label for="movietypes">Choose Movie Type:</label>
+      <select name="type" id="types">
+        <option value="2D">2D</option>
+        <option value="3D">3D</option>
+        <option value="4DX">4DX</option>
+      </select>
+  </div>
+
+  <h6 style="text-align: center;">choose your Language</h6>
+ <div class="slot">
+      <label><input type="radio" name="language" value="firstshow">Hindi</label>
+      <label><input type="radio" name="language" value="matinee">English</label>
+</div>
+</form>
+</div>
+<app-seatscontiner></app-seatscontiner>

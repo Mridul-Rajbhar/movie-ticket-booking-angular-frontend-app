@@ -1,0 +1,117 @@
+<div class="full cotainer">
+  <form  #seatsForm="ngForm">
+    <div class="container">
+      <div class="movie-container">
+        <h5 style="text-align: center;">please select your desired seat</h5>
+        <ul class="showcase"><li><div class="seat"></div>
+            <small>Available</small></li>
+          <li><div class="seat booked"></div>
+            <small>Selected</small></li>
+          <li><div class="seat occupied"></div>
+            <small>Occupied</small></li>    
+        </ul>
+    </div>
+      <div class="screen">
+        <h6 style="text-align: center; color: aliceblue;">screen</h6>
+      </div>
+
+      <small style="color: darkorange;">Premium</small>
+
+          <div class="row">
+              {{myRows[0]}}
+              <button *ngFor="let seat of seatPremium1;let i = index"  
+                 class="seat" (click)="selectOrUnSelect(myRows[0], i+1,'premium')"
+                 [ngClass]="seat.seatStatus=='Available'? 'Available':
+                 (seat.seatStatus=='booked' ? 'booked':'occupied')">
+                  {{i+1}}
+              </button>
+            </div>
+          
+          <div class="row" >
+            {{myRows[1]}}
+            <button *ngFor="let seat of seatPremium2;let i = index"
+            class="seat" (click)="selectOrUnSelect(myRows[1], i+1,'premium')"
+            [ngClass]="seat.seatStatus=='Available'? 'Available':
+                 (seat.seatStatus=='booked' ? 'booked':'occupied')">
+                {{i+1}}
+            </button>
+          </div>
+
+      <small style="color: darkorange;">Gold</small>
+      <div class="row">
+        {{myRows[2]}}
+        <button *ngFor="let seat of seatGold1;let i = index"
+           class="seat" (click)="selectOrUnSelect(myRows[2], i+1,'gold')"
+           [ngClass]="seat.seatStatus=='Available'? 'Available':
+           (seat.seatStatus=='booked' ? 'booked':'occupied')">
+            {{i+1}}
+        </button>
+      </div>
+
+      <div class="row">
+        {{myRows[3]}}
+        <button *ngFor="let seat of seatGold2;let i = index"
+           class="seat" (click)="selectOrUnSelect(myRows[3], i+1,'gold')"
+           [ngClass]="seat.seatStatus=='Available'? 'Available':
+           (seat.seatStatus=='booked' ? 'booked':'occupied')">
+            {{i+1}}
+        </button>
+      </div>
+      <div class="row">
+        {{myRows[4]}}
+        <button *ngFor="let seat of seatGold3;let i = index"
+           class="seat" (click)="selectOrUnSelect(myRows[4], i+1,'gold')"
+           [ngClass]="seat.seatStatus=='Available'? 'Available':
+           (seat.seatStatus=='booked' ? 'booked':'occupied')">
+            {{i+1}}
+        </button>
+      </div>
+      <div class="row">
+        {{myRows[5]}}
+        <button *ngFor="let seat of seatGold4;let i = index"
+           class="seat" (click)="selectOrUnSelect(myRows[5], i+1,'gold')"
+           [ngClass]="seat.seatStatus=='Available'? 'Available':
+           (seat.seatStatus=='booked' ? 'booked':'occupied')">
+            {{i+1}}
+        </button>
+      </div>
+      <small style="color: darkorange;">Silver</small>
+      <div class="row">
+        {{myRows[6]}}
+        <button *ngFor="let seat of seatSilver1;let i = index"
+           class="seat" (click)="selectOrUnSelect(myRows[6], i+1,'silver')"
+           [ngClass]="seat.seatStatus=='Available'? 'Available':
+           (seat.seatStatus=='booked' ? 'booked':'occupied')">
+            {{i+1}}
+        </button>
+      </div>
+      <div class="row">
+        {{myRows[7]}}
+        <button *ngFor="let seat of seatSilver2;let i = index"
+           class="seat" (click)="selectOrUnSelect(myRows[7], i+1,'silver')"
+           [ngClass]="seat.seatStatus=='Available'? 'Available':
+           (seat.seatStatus=='booked' ? 'booked':'occupied')">
+            {{i+1}}
+        </button>
+      </div>
+      <div class="row">
+        {{myRows[8]}}
+        <button *ngFor="let seat of seatSilver3;let i = index"
+           class="seat" (click)="selectOrUnSelect(myRows[8], i+1,'silver')"
+           [ngClass]="seat.seatStatus=='Available'? 'Available':
+           (seat.seatStatus=='booked' ? 'booked':'occupied')">
+            {{i+1}}
+        </button>
+      </div>
+        
+</div>
+
+<div class="book">
+  <button class="btn btn-success" [disabled]="!seatsForm.form.valid">Proceed</button>
+</div>
+
+</form>
+<app-seats></app-seats>
+
+
+
