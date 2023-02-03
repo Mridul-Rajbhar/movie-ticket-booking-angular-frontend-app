@@ -1,0 +1,38 @@
+/* .home-container{
+    display: flex;
+} */
+    .all-movies{
+        width: 75%;
+        min-height: calc(100vh - 80px);
+        border-right: 1px solid rgba(255, 99, 71, 1);
+        padding: 20px 40px;
+        font-family: "Roboto" , sans-serif;
+        border: 2px red solid;
+
+    }
+    .top {
+        display: flex; 
+        align-items: center;
+        justify-content: space-between; 
+ }
+   
+ h4{
+     text-transform: uppercase;
+     font-weight: bold;
+     border-left: 5px solid  rgb(242, 122, 101);
+     padding-left: 10px;
+ }
+
+ .view-all{
+    color: rgb(242, 122, 101);
+    cursor: pointer;
+ }
+
+    .popular-movies{
+        width: 25px;
+        min-height: calc(100vh - 80px);
+        padding: 20px 40px;
+        font-family: "Roboto" , sans-serif;
+    }
+
+   
