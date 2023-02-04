@@ -1,12 +1,13 @@
+import { movies } from './movie';
 import { seats } from './seats';
-import { Time } from "@angular/common";
 
 export class booking{
-    public bookingTime: Time = null;
-    public bookingDate: Date = null;
+    public movie: movies =null;
+    public bookingTime: string = null;
+    public bookingDate: string = null;
     public movieFormat: string = null;
-    public movieLanguage: string = null;
-    public seatsBooked: seats[] = new Array();
+    public seats: seats[] = new Array();
+    public language: string = null;
     constructor(){
 
     }

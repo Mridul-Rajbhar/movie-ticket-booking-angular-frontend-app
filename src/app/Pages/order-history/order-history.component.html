@@ -2,22 +2,20 @@
     <thead>
         <tr>
             <th>Movie</th>
-            <th>Date</th>
+            <th>Booking Date</th>
+            <th>Booking Time</th>
             <th>Amount Paid</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Movie Name</td>
-            <td>20/01/23</td>
-            <td>&#8377; 200</td>
-            <td><button class="red-white">View</button></td>
-        </tr>
-        <tr>
-            <td>Movie Name</td>
-            <td>20/01/23</td>
-            <td>&#8377; 200</td>
-            <td><button class="red-white">View</button></td>        
+        <tr *ngFor="let order of allOrders">
+            <td>{{order.booking.movie.movieName}}</td>
+            <td>{{order.booking.bookingDate}}</td>
+            <td>{{order.booking.bookingTime}}</td>
+            <td>&#8377; {{order.amount}}</td>
+            <td>
+                <a class="red-white" href="/order-history/{{order.orderId}}/single-order-details">View</a>
+            </td>
         </tr>
     </tbody>
 </table>

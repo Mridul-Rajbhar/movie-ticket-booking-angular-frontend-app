@@ -1,0 +1,83 @@
+<div *ngIf="actionMovies?.length >= 1" class="info-container">
+    <h3 class="info-heading">Action Movies</h3>
+    <div class="container">
+        <div class="col">
+            <div class="movie-card">
+                <div class="movie-image">
+                    <img src="{{actionMovies[0]?.imageURL}}" alt="">
+                </div>
+                <p class="movie-name">{{actionMovies[0]?.movieName}}</p>
+            </div>
+        </div>
+        <div class="col">
+            <div *ngIf="adventureMovies?.length >= 2" >
+                
+            </div>
+        </div>
+        <div class="col">
+            <div *ngIf="adventureMovies?.length >= 1" >
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="adventureMovies?.length >= 1" class="info-container">
+    <h3 class="info-heading">Adventure Movies</h3>
+    <div class="container">
+        <div class="col">
+            <div class="movie-card">
+                
+            </div>
+        </div>
+        <div class="col">
+            <div *ngIf="adventureMovies?.length >= 2" >
+                
+            </div>
+        </div>
+        <div class="col">
+            <div *ngIf="adventureMovies?.length >= 1" >
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="dramaMovies?.length >= 1" class="info-container">
+    <h3 class="info-heading">Drama Movies</h3>
+    <div class="container">
+        <div class="col">
+            <div class="movie-card">
+                
+            </div>
+        </div>
+        <div class="col">
+            <div *ngIf="dramaMovies?.length >= 2" >
+                
+            </div>
+        </div>
+        <div class="col">
+            <div *ngIf="dramaMovies?.length >= 1" >
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="romanceMovies?.length >= 1" class="info-container">
+    <h3 class="info-heading">Romantic Movies</h3>
+    <div class="container">
+        <div class="col">
+            <div class="movie-card">
+                
+            </div>
+        </div>
+        <div class="col">
+            <div *ngIf="romanceMovies?.length >= 2" >
+                
+            </div>
+        </div>
+        <div class="col">
+            <div *ngIf="romanceMovies?.length >= 1" >
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,13 +2,13 @@
     <h3 class="info-heading">Reviews</h3>
     <div class="reviews-container container">
         <div class="col">
-            <div class="reviews" >
+            <div *ngIf="movieInformation?.reviews.length >= 1" class="reviews" >
                 <div class="user-info">
                     <div class="user-name">
                         {{movieInformation?.reviews[index1]?.user?.firstName + " " + movieInformation?.reviews[0]?.user?.lastName}} 
                     </div>
                     <div class="user-star">
-                        <p class="star"> &#9733;</p>
+                        <p class="star"> &#9733; {{movieInformation?.reviews[index1]?.stars}} &#47; 5 </p>
                     </div>
                 </div>
                 <div class="user-comment">
@@ -38,7 +38,7 @@
                         {{movieInformation?.reviews[index3]?.user?.firstName + " " + movieInformation?.reviews[0]?.user?.lastName}} 
                     </div>
                     <div class="user-star">
-                        <p class="star"> &#9733;</p>
+                        <p class="star"> &#9733; {{movieInformation?.reviews[index3]?.stars}} &#47; 5 </p>
                     </div>
                 </div>
                 <div class="user-comment">
@@ -48,7 +48,7 @@
         </div>
     </div>
         <div class="button-container">
-            <button class="navigation-button">Previous</button>
-            <button class="navigation-button">Next</button>
+            <button (click)="previous()" class="navigation-button">Previous</button>
+            <button (click)="next()" class="navigation-button">Next</button>
         </div>
 </div>

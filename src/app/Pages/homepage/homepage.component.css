@@ -1,0 +1,29 @@
+.movie-card{
+    width:20%;
+    height: 350px;
+    /* border: 2px solid red; */
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 5px 10px;
+}
+
+.movie-image{
+    height: 90%;
+    width: 100%;
+    width: auto;
+    overflow: hidden;
+    /* border: 2px solid green; */
+}
+
+.movie-image img{
+    /* height: 100%; */
+    width: 100%;
+}
+
+.movie-name{
+    height: 10%;
+    text-align: center;
+    background-color: black;
+    color: white;
+    
+}
