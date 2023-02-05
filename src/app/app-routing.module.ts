@@ -22,7 +22,7 @@ const routes: Routes = [
   {path:"admin/addMovie", component:AddMoviesComponent},
   {path:"movies/:movieName/booking", component:BookingComponent},
   {path:"admin/deleteMovie", component: DeleteMoviesComponent},
-  {path:"movies/", component: ShowAllMovieComponent},
+  {path:"movies", component: ShowAllMovieComponent},
   {path:"movies/:movieName", component:MovieDetailsComponent}
 ];
 

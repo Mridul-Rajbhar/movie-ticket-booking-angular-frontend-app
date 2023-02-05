@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <div class="movie-card">
+                    <div (click)="navigateToMovieDetails(displayMovies[0]?.movieName)" class="movie-card">
                         <div class="movie-image">
                             <img src="{{displayMovies[0]?.imageURL}}" alt="">
                         </div>
@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div *ngIf="displayMovies?.length >= 2" class="movie-card">
+                    <div *ngIf="displayMovies?.length >= 2" (click)="navigateToMovieDetails(displayMovies[1]?.movieName)" class="movie-card">
                         <div class="movie-image">
                             <img src="{{displayMovies[1]?.imageURL}}" alt="">
                         </div>
@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div *ngIf="displayMovies?.length >= 3" class="movie-card">
+                    <div *ngIf="displayMovies?.length >= 3" (click)="navigateToMovieDetails(displayMovies[2]?.movieName)" class="movie-card">
                         <div class="movie-image">
                             <img src="{{displayMovies[2]?.imageURL}}" alt="">
                         </div>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div *ngIf="displayMovies?.length >= 4" class="movie-card">
+                    <div *ngIf="displayMovies?.length >= 4" (click)="navigateToMovieDetails(displayMovies[3]?.movieName)" class="movie-card">
                         <div class="movie-image">
                             <img src="{{displayMovies[3]?.imageURL}}" alt="">
                         </div>

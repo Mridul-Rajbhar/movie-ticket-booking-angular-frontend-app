@@ -1,4 +1,4 @@
-import { seats } from './../../../Datatypes/seats';
+import { seats } from './../../../DataTypes/seats';
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({

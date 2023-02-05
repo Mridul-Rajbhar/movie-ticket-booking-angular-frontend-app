@@ -16,7 +16,7 @@ export class BookingService {
    }
    
    public getBooking():Observable<booking[]>{
-      return this.http.get<booking[]>(this._bookingUrl);
+      return this._http.get<booking[]>(this._bookingUrl);
    }
 
    public getBookingById(bookingId: number):Observable<booking>{

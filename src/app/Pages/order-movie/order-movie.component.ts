@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./order-movie.component.css']
 })
 export class OrderMovieComponent {
-  private _userId: number = 1;//parseInt(localStorage.getItem('userId'));
+  private _userId: number = parseInt(localStorage.getItem('userId'));
   private _activatedRoute: ActivatedRoute;
   private _movieNameToBeFounded: string;
   
@@ -28,6 +28,7 @@ export class OrderMovieComponent {
   private _goldPrice: number = 200;
   private _silverPrice: number = 150;
   private _discount: discount = null;
+  private _bookingDetails: any = null;
 
   public orderToPlaced: order;
   public movieToOrder: movies;
@@ -54,26 +55,29 @@ export class OrderMovieComponent {
     this._movieService = movieService;
     this._discountService = discountService;
     this._orderService = orderService;
+    this.bookingMovie = history.state.bookingInput;
 
-    this.bookingMovie = {
-      movie: null,
-      language: "Hindi",
-      movieFormat: "2D",
-      bookingDate: "2023-01-25",
-      bookingTime: "15:33:00",
-      seats: [{
-        seatNumber: 1,
-        seatRow: "A",
-        seatType: "Premium",
-        seatStatus:""
-      }, 
-      {
-        seatNumber: 2,
-        seatRow: "B",
-        seatType: "Premium",
-        seatStatus:""
-      }]
-    }
+    // this._bookingDetails = history.state.data;
+    // console.log(this._bookingDetails);
+    // this.bookingMovie = {
+    //   movie: null,
+    //   language: "Hindi",
+    //   movieFormat: "2D",
+    //   bookingDate: "2023-01-25",
+    //   bookingTime: "15:33:00",
+    //   seats: [{
+    //     seatNumber: 1,
+    //     seatRow: "A",
+    //     seatType: "Premium",
+    //     seatStatus:""
+    //   }, 
+    //   {
+    //     seatNumber: 2,
+    //     seatRow: "B",
+    //     seatType: "Premium",
+    //     seatStatus:""
+    //   }]
+    // }
 
   }
 
@@ -88,8 +92,8 @@ export class OrderMovieComponent {
     this._movieService.getMovieByName(this._movieNameToBeFounded).subscribe(
       (response: movies)=>{
         this.movieToOrder = response;
-        console.log(this.movieToOrder);
-        console.log(typeof this.movieToOrder.duration);
+        // console.log(this.movieToOrder);
+        // console.log(typeof this.movieToOrder.duration);
 
       }
     );

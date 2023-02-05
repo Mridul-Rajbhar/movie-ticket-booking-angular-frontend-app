@@ -1,4 +1,4 @@
-import { movie } from './../../Datatypes/movie';
+import { movies } from './../../DataTypes/movie';
 import { MovieService } from './../../Services/movie.service';
 import { Component } from '@angular/core';
 
@@ -11,20 +11,20 @@ export class DeleteMoviesComponent {
 
   private movieService: MovieService;
 
-  allMovie:movie[]=[];
-  movieToDelete:movie;
+  allMovie:movies[]=[];
+  movieToDelete:movies;
 
   constructor(movieService: MovieService){
     this.movieService=movieService;
     this.movieService.getMovies().subscribe(
-      (result: movie[])=>{
+      (result: movies[])=>{
       this.allMovie=result;
       console.log(this,this.allMovie)
       }
     );
   }
 
-public Ondelete(movieToBeDeleted: movie)
+public Ondelete(movieToBeDeleted: movies)
 {
   this.movieService.deleteMovie(movieToBeDeleted.movieName).subscribe(
     (response)=>{

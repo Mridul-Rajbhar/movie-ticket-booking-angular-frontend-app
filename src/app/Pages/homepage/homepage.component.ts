@@ -1,3 +1,4 @@
+import { Router, Routes } from '@angular/router';
 import { review } from './../../DataTypes/review';
 import { MovieService } from './../../Services/movie.service';
 import { movies } from './../../DataTypes/movie';
@@ -11,6 +12,7 @@ import { map } from 'rxjs';
 })
 export class HomepageComponent {
   private _movieService: MovieService;
+  private _router: Router;
 
   public actionMovies: movies[] = null;
   public adventureMovies: movies[] = null;
@@ -25,7 +27,8 @@ export class HomepageComponent {
   public movieCategoriesToDisplay: {"movies":movies[][],
                                     "category_name":string[]} = {"movies":[], "category_name":[]};
 
-  constructor(movieService: MovieService){
+  constructor(movieService: MovieService, router: Router){
+    this._router = router;
     localStorage.setItem('userId', '1');
     
     this.movieCategoriesToDisplay.category_name.push("Action Movies");
@@ -68,21 +71,7 @@ export class HomepageComponent {
     console.log(this.movieCategoriesToDisplay);
   }
 
-  // getReviews(movieName: string){
-  //   let totalStars: number = 0;
-  //     this._movieService.getReviewsByMovieName(movieName).subscribe(
-  //       (response: review[])=>{
-  //           if(response.length>=1){
-  //           response.forEach(
-  //             (element)=>{
-  //               totalStars += element.stars;
-  //             }
-  //           );
-  //           totalStars/=response.length;
-  //           console.log(totalStars);
-  //         }
-  //       }
-  //     );
-  // }
-
+  navigateToMovieDetails(movieName: string){
+    this._router.navigate(['movies/'+movieName]);
+  }
 }

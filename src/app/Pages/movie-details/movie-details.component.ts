@@ -1,7 +1,7 @@
 import { MovieService } from './../../Services/movie.service';
 import { movies } from '../../DataTypes/movie';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-details',
@@ -15,7 +15,8 @@ export class MovieDetailsComponent {
   public movieName:string;
   
 
-  constructor(private route :ActivatedRoute , private movieService :MovieService ){}
+  constructor(private route :ActivatedRoute ,
+    private _router:Router, private movieService :MovieService ){}
 
   ngOnInit():void{
     this.route.paramMap.subscribe((response)=>
@@ -40,4 +41,7 @@ export class MovieDetailsComponent {
     return this.singleMovie?.imageURL;
   }
  
+  bookTicketsPage(movieName: string){
+    this._router.navigate(['movies/'+movieName+"/booking"]);
+  }
 }

@@ -1,3 +1,5 @@
+import { review } from './../../DataTypes/review';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ReviewService } from './../../Services/review.service';
 import { Component } from '@angular/core';
 
@@ -9,13 +11,26 @@ import { Component } from '@angular/core';
 export class ReviewCommentComponent {
   
   private _reviewService: ReviewService;
-  private _userId: number = 1;//parseInt(localStorage.getItem('userId'));
-  private movieName: string = "Pathaan";
+  private _userId: number = parseInt(localStorage.getItem('userId'));
+  private movieName: string;
 
   public reviewComment: string = "";
-
-  constructor(reviewService: ReviewService){
+  public oldComment: string = "";
+  constructor(private route: ActivatedRoute, reviewService: ReviewService){
     this._reviewService = reviewService;
+    this.route.paramMap.subscribe((response)=>
+      {
+    this.movieName = (response.get('movieName'));
+  });
+
+  this._reviewService.findReviewByUserAndMovieName(this._userId,this.movieName).subscribe(
+    (response: review|null)=>{
+        if(response!=null){
+          this.oldComment = response.comment;
+        }
+    }
+  );
+
   }
 
   public onSubmit(){

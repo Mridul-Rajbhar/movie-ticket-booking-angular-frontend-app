@@ -1,8 +1,8 @@
+import { cast } from 'src/app/DataTypes/cast';
+import { movies } from './../../DataTypes/movie';
 import { NgForm } from '@angular/forms';
 import { MovieService } from './../../Services/movie.service';
-import { movie } from './../../Datatypes/movie';
 import { Component } from '@angular/core';
-import { cast } from 'src/app/Datatypes/cast';
 
 @Component({
   selector: 'app-add-movies',
@@ -12,7 +12,7 @@ import { cast } from 'src/app/Datatypes/cast';
 export class AddMoviesComponent {
   imageUrl:string="../assets/images/Movies/defaultmovieimage.jpg";
  
-  movieInput: movie=new movie();
+  movieInput: movies=new movies();
   submitted: boolean = false;
   private movieService:MovieService;
   movieCast:cast[]=[];

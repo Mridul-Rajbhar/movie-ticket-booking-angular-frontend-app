@@ -1,6 +1,6 @@
 .star-container{
-    display: inline-block;
-    border: 2px solid;
+    display: block;
+    /* border: 2px solid; */
 }
 .star-container i{
     font-size:xx-large;

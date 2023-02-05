@@ -23,6 +23,14 @@ export class ReviewService {
   return this._http.post<review>(this._reviewURL+"/comment/"+userId+"/"+movieName, comment);
  }
 
+ public findReviewById(userId:number):Observable<review>{
+    return this._http.get<review>(this._reviewURL + "/" + userId);
+ }
+
+  public findReviewByUserAndMovieName (userId: number, movieName: string):Observable<review>|null{
+    return this._http.get<review|null>(this._reviewURL + "/" + userId+"/"+movieName); 
+  }
+
  public getAllReviews():Observable<review[]>{
   return this._http.get<review[]>(this._reviewURL);
  }

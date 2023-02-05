@@ -1,6 +1,6 @@
-<p>booking works!</p>
+
 <div class="container1">
-  <form #bookingForm="ngForm" (ngSubmit)="onSubmit(bookingForm)">
+  <form #bookingForm="ngForm">
 
 <div class="form-group">   
 <div class="bookingdate">
@@ -28,7 +28,6 @@
       <select name="movieFormat" id="movieFormat" [(ngModel)]="bookingInput.movieFormat" required #movieFormat="ngModel">
         <option value="2D">2D</option>
         <option value="3D">3D</option>
-        <option value="4DX">4DX</option>
       </select>
   </div>
   </div>
@@ -37,8 +36,8 @@
   <h6 style="text-align: center;">choose your Language</h6>
   <div class="form-group">
     <div class="slot">
-      <label for="hindi"><input type="radio" required name="movieLanguage" #movieLanguage="ngModel" [(ngModel)]="bookingInput.movieLanguage" value="Hindi" id="hindi">Hindi</label>
-      <label for="english"><input type="radio" required name="movieLanguage" name="movieLanguage" #movieLanguage="ngModel"   [(ngModel)]="bookingInput.movieLanguage" value="English" id="hindi" NgModel>English</label>
+      <label for="hindi"><input type="radio" required name="movieLanguage" #movieLanguage="ngModel" [(ngModel)]="bookingInput.language" value="Hindi" id="hindi">Hindi</label>
+      <label for="english"><input type="radio" required name="movieLanguage" name="movieLanguage" #movieLanguage="ngModel"   [(ngModel)]="bookingInput.language" value="English" id="hindi" NgModel>English</label>
     </div>
  
   </div><br>
@@ -46,15 +45,15 @@
 <app-seatscontiner (addSeatEvent)="addSeat($event)" (removeSeatEvent)="removeSeat($event)"></app-seatscontiner> 
 
 <div class="book">
-  <button class="btn btn-success" [disabled]="!bookingForm.form.valid || notSelected">Proceed</button>
+  <button type="submit" (click)="onSubmit(bookingForm)" class="btn btn-success" [disabled]="!bookingForm.form.valid || notSelected">Proceed</button>
 </div>
 </form>
 
 
 
 
-<h5>Thank you for booking </h5>
+<!-- <h5>Thank you for booking </h5>
 <h6>Your booking date is:-{{bookingInput.bookingDate}}</h6>
 <h6>Your booking time is:-{{bookingInput.bookingTime}}</h6>
 <h6>Your booking movieFormat is:-{{bookingInput.movieFormat}}</h6>
-<h6>your booking language is:-{{bookingInput.movieLanguage}}</h6>
+<h6>your booking language is:-{{bookingInput.language}}</h6> -->

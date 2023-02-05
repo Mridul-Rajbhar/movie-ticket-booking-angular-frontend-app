@@ -1,3 +1,6 @@
+import { review } from './../../DataTypes/review';
+import { movies } from './../../DataTypes/movie';
+import { ActivatedRoute } from '@angular/router';
 import { star } from './../../DataTypes/star';
 import { ReviewService } from './../../Services/review.service';
 import { Component } from '@angular/core';
@@ -9,12 +12,17 @@ import { Component } from '@angular/core';
 })
 export class ReviewStarComponent {
     private _reviewService: ReviewService;
-    private _userId: number = 1;//parseInt(localStorage.getItem('userId'));
-    private movieName: string = "Pathaan";
+    private _userId: number = parseInt(localStorage.getItem('userId'));
+    private movieName: string;
     
     public stars:star[] = []
-    constructor(reviewService: ReviewService){
+    constructor(private route :ActivatedRoute, reviewService: ReviewService){
+
       this._reviewService = reviewService;
+      this.route.paramMap.subscribe((response)=>
+        {
+      this.movieName = (response.get('movieName'));
+    })
       this.stars = [
         new star(),
         new star(),
@@ -22,6 +30,17 @@ export class ReviewStarComponent {
         new star(),
         new star()
     ]
+    }
+
+    ngOnInit(){
+      console.log(this._userId + " " + this.movieName);
+      this._reviewService.findReviewByUserAndMovieName(this._userId,this.movieName).subscribe(
+        (response:review|null)=>{
+          if(response != null){
+            this.giveStars(this.stars[response.stars-1]);
+          }
+        }
+      );
     }
 
     private giveStars(star:star){

@@ -6,3 +6,8 @@
     /*border-radius: 100px;*/
 
 }
+
+.content{
+    min-height: 500px;
+    /* border: 2px solid red; */
+}

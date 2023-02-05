@@ -1,6 +1,7 @@
 export class cast{
-
-    public castName:string=null;
-    public profession:string=null;
-    constructor(){}
+    public castName: string = null;
+    public profession: string = null;
+    constructor(){
+        
+    }
 }

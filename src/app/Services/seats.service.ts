@@ -1,4 +1,4 @@
-import { seats } from './../Datatypes/seats';
+import { seats } from './../DataTypes/seats';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';

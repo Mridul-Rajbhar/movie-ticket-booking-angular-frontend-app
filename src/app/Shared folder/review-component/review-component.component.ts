@@ -1,3 +1,4 @@
+import { MovieService } from './../../Services/movie.service';
 import { ActivatedRoute } from '@angular/router';
 import { movies } from './../../DataTypes/movie';
 import { review } from '../../DataTypes/review';
@@ -13,19 +14,23 @@ export class ReviewComponent {
 
   private reviewsArraySize: number;
 
-  @Input() public movieInformation: movies;
+  public movieName:string;
+  public movieInformation: movies;
   public index1:number = 0;
   public index2:number = 1;
   public index3:number = 2;
-  constructor(){
-    this.movieInformation = new movies();
-    this.movieInformation.reviews = [
-      {stars: 5, comment: "It is a good movie 1", user: new user()},
-      {stars: 3, comment: "ok ok 2", user: new user()},
-      {stars: 2, comment: "not good 3", user: new user()},
-      {stars: 1, comment: "very bad 4", user: new user()}
-    ];
-    this.reviewsArraySize = this.movieInformation.reviews.length;
+  constructor(private route :ActivatedRoute , private movieService :MovieService){
+    this.route.paramMap.subscribe((response)=>
+        {
+      this.movieName = (response.get('movieName'));
+    })
+
+    this.movieService.getMovieByName(this.movieName).subscribe(
+      (response: movies)=>{
+      this.movieInformation=response;
+      this.reviewsArraySize = this.movieInformation.reviews.length;
+      
+    })
   }
 
   next(){
