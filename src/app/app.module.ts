@@ -1,7 +1,8 @@
+import { MovieService } from './Services/movie.service';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OrderMovieComponent } from './Pages/order-movie/order-movie.component';
@@ -15,6 +16,11 @@ import { ReviewStarComponent } from './Shared folder/review-star/review-star.com
 import { ReviewCommentComponent } from './Shared folder/review-comment/review-comment.component';
 import { HeaderComponent } from './Shared folder/header/header.component';
 import { FooterComponent } from './Shared folder/footer/footer.component';
+import { BookingComponent } from './Pages/booking/booking.component';
+import { SeatscontinerComponent } from './Pages/booking/seatscontiner/seatscontiner.component';
+import { DeleteMoviesComponent } from './Pages/delete-movies/delete-movies.component';
+import { AddMoviesComponent } from './Pages/add-movies/add-movies.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +33,11 @@ import { FooterComponent } from './Shared folder/footer/footer.component';
     ReviewStarComponent,
     ReviewCommentComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    BookingComponent,
+    SeatscontinerComponent,
+    DeleteMoviesComponent,
+    AddMoviesComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +45,7 @@ import { FooterComponent } from './Shared folder/footer/footer.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

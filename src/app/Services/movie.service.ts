@@ -26,4 +26,12 @@ export class MovieService {
    public getReviewsByMovieName(movieName: string):Observable<review[]>{
     return this._http.get<review[]>(this._movieURL+"/reviews/"+movieName);
    }
+   
+   public postMovie(newMovie:movie):Observable<movie>{
+     return this.http.post<movie>(this._movieURL,newMovie);
+    }
+    
+  public deleteMovie(movieName:string){
+  return this.http.delete<movie>(this._movieURL+"/"+ movieName);
+  }
 }
