@@ -11,6 +11,10 @@ import {HttpClientModule} from '@angular/common/http';
 import { ReviewComponent } from './Shared folder/review-component/review-component.component';
 import { DiscountFormComponent } from './Pages/discount-form/discount-form.component';
 import { HomepageComponent } from './Pages/homepage/homepage.component';
+import { ReviewStarComponent } from './Shared folder/review-star/review-star.component';
+import { ReviewCommentComponent } from './Shared folder/review-comment/review-comment.component';
+import { HeaderComponent } from './Shared folder/header/header.component';
+import { FooterComponent } from './Shared folder/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +23,11 @@ import { HomepageComponent } from './Pages/homepage/homepage.component';
     SingleOrderDetailsComponent,
     ReviewComponent,
     DiscountFormComponent,
-    HomepageComponent
+    HomepageComponent,
+    ReviewStarComponent,
+    ReviewCommentComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

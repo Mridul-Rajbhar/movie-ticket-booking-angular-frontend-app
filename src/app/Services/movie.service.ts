@@ -1,3 +1,4 @@
+import { review } from './../DataTypes/review';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -20,5 +21,9 @@ export class MovieService {
 
    public getMovieByName(movieName:string){
     return this._http.get(this._movieURL+ "/name/" + movieName);
+   }
+
+   public getReviewsByMovieName(movieName: string):Observable<review[]>{
+    return this._http.get<review[]>(this._movieURL+"/reviews/"+movieName);
    }
 }
