@@ -16,6 +16,9 @@ import { ReviewStarComponent } from './Shared folder/review-star/review-star.com
 import { ReviewCommentComponent } from './Shared folder/review-comment/review-comment.component';
 import { HeaderComponent } from './Shared folder/header/header.component';
 import { FooterComponent } from './Shared folder/footer/footer.component';
+import { MovieFilterPipe } from './pipes/movie-filter.pipe';
+import { ShowAllMovieComponent } from './Pages/show-all-movie/show-all-movie.component';
+import { MovieDetailsComponent } from './Pages/movie-details/movie-details.component';
 import { BookingComponent } from './Pages/booking/booking.component';
 import { SeatscontinerComponent } from './Pages/booking/seatscontiner/seatscontiner.component';
 import { DeleteMoviesComponent } from './Pages/delete-movies/delete-movies.component';
@@ -34,6 +37,9 @@ import { AddMoviesComponent } from './Pages/add-movies/add-movies.component';
     ReviewCommentComponent,
     HeaderComponent,
     FooterComponent,
+    MovieFilterPipe,
+    ShowAllMovieComponent,
+    MovieDetailsComponent
     BookingComponent,
     SeatscontinerComponent,
     DeleteMoviesComponent,

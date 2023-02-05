@@ -26,6 +26,14 @@ export class MovieService {
    public getReviewsByMovieName(movieName: string):Observable<review[]>{
     return this._http.get<review[]>(this._movieURL+"/reviews/"+movieName);
    }
+
+   //Show-all-movie-component
+  public getMovieGenre(movieGenre: String , pageNumber:number , pageSize:number):Observable<movies[]>{
+    return this._http.get<movies[]>(this._movieURL +"/"+ movieGenre + "/" + pageNumber +"/"+pageSize);
+  }
+
+  public getMovieByPagination(pageNumber:number, pageSize:number):Observable<movies[]>{
+    return this._http.get<movies[]>(this._movieURL + "/" + pageNumber + "/" + pageSize);
    
    public postMovie(newMovie:movie):Observable<movie>{
      return this.http.post<movie>(this._movieURL,newMovie);

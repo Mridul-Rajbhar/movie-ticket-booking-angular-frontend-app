@@ -43,4 +43,4 @@ Thumbs.db
 
 package.json
 package-lock.json
-config.json
+tsconfig.json
