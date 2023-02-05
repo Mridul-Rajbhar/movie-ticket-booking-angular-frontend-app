@@ -34,5 +34,12 @@ export class MovieService {
 
   public getMovieByPagination(pageNumber:number, pageSize:number):Observable<movies[]>{
     return this._http.get<movies[]>(this._movieURL + "/" + pageNumber + "/" + pageSize);
+   
+   public postMovie(newMovie:movie):Observable<movie>{
+     return this.http.post<movie>(this._movieURL,newMovie);
+    }
+    
+  public deleteMovie(movieName:string){
+  return this.http.delete<movie>(this._movieURL+"/"+ movieName);
   }
 }
