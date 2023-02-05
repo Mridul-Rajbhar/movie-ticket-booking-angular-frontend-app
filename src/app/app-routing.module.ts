@@ -1,14 +1,13 @@
 import { BookingComponent } from './Pages/booking/booking.component';
 import { DeleteMoviesComponent } from './Pages/delete-movies/delete-movies.component';
-import { SeatscontinerComponent } from './Pages/booking/seatscontiner/seatscontiner.component';
-import { AddMovieComponent } from './UIComponent/add-movie/add-movie.component';
-import { NgModule, Component } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddMoviesComponent } from './Pages/add-movies/add-movies.component';
 
 const routes: Routes = [
   {
     path:"movieDetails",
-    component:AddMovieComponent
+    component:AddMoviesComponent
   },
   {
     path:"booking",

@@ -1,5 +1,5 @@
 import { seats } from './../../../Datatypes/seats';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-seatscontiner',
@@ -8,10 +8,12 @@ import { Component } from '@angular/core';
 })
 export class SeatscontinerComponent {
 
-  
-  public seatColor:string;
+  @Output() addSeatEvent = new EventEmitter<seats>();
+  @Output() removeSeatEvent = new EventEmitter<seats>();
 
-  public type=3;
+  public seatColor:string;
+  
+  // public type=3;
   public seatPremium1:seats[] = new  Array(10);
   public seatPremium2:seats[]= new  Array(10);
 
@@ -40,173 +42,139 @@ export class SeatscontinerComponent {
       this.seatSilver3[i]=new seats();
     }
   }
+   
+  private applySeatInfo(seatsRow: seats[], index:number, row:string, seatNumber: number, seatType: string , seatStatus: string){
+     seatsRow[index].seatRow = row;
+     seatsRow[index].seatNumber = seatNumber;
+     seatsRow[index].seatType= seatType;
+     seatsRow[index].seatStatus= seatStatus;
+  }
 
-
+  private createSeatObject(row:string, seatNumber: number, seatType: string){
+    this.addSeatEvent.emit({ seatNumber:seatNumber,
+      seatRow:row,
+      seatType:seatType,
+      seatStatus:""
+    })
+  }
+  private deleteSeatObject(row:string, seatNumber: number, seatType: string){
+    this.removeSeatEvent.emit({ seatNumber:seatNumber,
+      seatRow:row,
+      seatType:seatType,
+      seatStatus:""
+    })
+  }
   public selectOrUnSelect(row:string, seatNumber: number, seatType:string)
   {
-    console.log(row + " " + seatType + " " + seatNumber);
+    // console.log(row + " " + seatType + " " + seatNumber);
     if(row =='A' && seatType == "premium")
     {
-      if(this.seatPremium1[seatNumber-1].seatNumber==null)
-      {
-        this.seatPremium1[seatNumber-1].seatRow= row;
-        this.seatPremium1[seatNumber-1].seatNumber=seatNumber;
-        this.seatPremium1[seatNumber-1].seatType='premium';
-         console.log("selected"); /*selected Enable*/
-        this.seatPremium1[seatNumber-1].seatStatus="booked";
+      if(this.seatPremium1[seatNumber-1].seatNumber==null){
+        this.applySeatInfo(this.seatPremium1, seatNumber-1, row, seatNumber, 'Premium',"booked");
+        this.createSeatObject(row, seatNumber, 'Premium');
       }
-      else
-      {
-        this.seatPremium1[seatNumber-1].seatRow= null;
-        this.seatPremium1[seatNumber-1].seatNumber=null;
-        this.seatPremium1[seatNumber-1].seatType=null;
-        this.seatPremium1[seatNumber-1].seatStatus="Available";
-        console.log("Available");
+      else {
+        this.applySeatInfo(this.seatPremium1,seatNumber-1, null, null, null, 'Available');
+        this.deleteSeatObject(row, seatNumber, 'Premium');
       }
     }
     else if(row == 'B' && seatType=="premium")
       {
         if(this.seatPremium2[seatNumber-1].seatNumber==null)
         {
-          this.seatPremium2[seatNumber-1].seatRow= row;
-          this.seatPremium2[seatNumber-1].seatNumber=seatNumber;
-          this.seatPremium2[seatNumber-1].seatType='premium';
-           console.log("selected"); /*selected Enable*/
-          this.seatPremium2[seatNumber-1].seatStatus="booked";
+          this.applySeatInfo(this.seatPremium2, seatNumber-1, row, seatNumber, 'Premium',"booked");
+          this.createSeatObject(row, seatNumber, 'Premium');
+           //console.log("selected"); /*selected Enable*/
         }
         else
         {
-          this.seatPremium2[seatNumber-1].seatRow= null;
-          this.seatPremium2[seatNumber-1].seatNumber=null;
-          this.seatPremium2[seatNumber-1].seatType=null;
-          this.seatPremium2[seatNumber-1].seatStatus="Available";
-          console.log("Available");
+          this.applySeatInfo(this.seatPremium2,seatNumber-1,null,null,null,'Available');
+          this.deleteSeatObject(row,seatNumber,'Premium');
+          //console.log("Available");
         }
       }
       else if(row=='C' && seatType=="gold"){
         if(this.seatGold1[seatNumber-1].seatNumber==null)
         {
-          this.seatGold1[seatNumber-1].seatRow= row;
-          this.seatGold1[seatNumber-1].seatNumber=seatNumber;
-          this.seatGold1[seatNumber-1].seatType='gold';
-          this.seatGold1[seatNumber-1].seatStatus="booked";
-          console.log("selected"); /*selected Enable*/
+          this.applySeatInfo(this.seatGold1, seatNumber-1, row, seatNumber, 'Gold',"booked");
+          this.createSeatObject(row, seatNumber, 'Gold');
         }
         else
         {
-          this.seatGold1[seatNumber-1].seatRow= null;
-          this.seatGold1[seatNumber-1].seatNumber=null;
-          this.seatGold1[seatNumber-1].seatType=null;
-          this.seatGold1[seatNumber-1].seatStatus="Available";
-          console.log("Available");
+          this.applySeatInfo(this.seatGold1,seatNumber-1,null,null,null,'Available');
+          this.deleteSeatObject(row,seatNumber,'Gold');
         }
       }
         else if(row=='D' && seatType=='gold'){
           if(this.seatGold2[seatNumber-1].seatNumber==null)
           {
-            this.seatGold2[seatNumber-1].seatRow= row;
-            this.seatGold2[seatNumber-1].seatNumber=seatNumber;
-            this.seatGold2[seatNumber-1].seatType='gold';
-            this.seatGold2[seatNumber-1].seatStatus="booked";
-            console.log("selected"); /*selected Enable*/
+            this.applySeatInfo(this.seatGold2, seatNumber-1, row, seatNumber, 'Gold',"booked");
+            this.createSeatObject(row, seatNumber, 'Gold');
           }
           else
           {
-            this.seatGold2[seatNumber-1].seatRow= null;
-            this.seatGold2[seatNumber-1].seatNumber=null;
-            this.seatGold2[seatNumber-1].seatType=null;
-            this.seatGold2[seatNumber-1].seatStatus="Available";
-            console.log("Available");
+            this.applySeatInfo(this.seatGold2,seatNumber-1,null,null,null,'Available');
+          this.deleteSeatObject(row,seatNumber,'Gold');
           }
         }
      else if(row=='E' && seatType=='gold'){
       if(this.seatGold3[seatNumber-1].seatNumber==null)
           {
-            this.seatGold3[seatNumber-1].seatRow= row;
-            this.seatGold3[seatNumber-1].seatNumber=seatNumber;
-            this.seatGold3[seatNumber-1].seatType='gold';
-            this.seatGold3[seatNumber-1].seatStatus="booked";
-            console.log("selected"); /*selected Enable*/
+            this.applySeatInfo(this.seatGold3, seatNumber-1, row, seatNumber, 'Gold',"booked");
+            this.createSeatObject(row, seatNumber, 'Gold');
           }
           else
           {
-            this.seatGold3[seatNumber-1].seatRow= null;
-            this.seatGold3[seatNumber-1].seatNumber=null;
-            this.seatGold3[seatNumber-1].seatType=null;
-            this.seatGold3[seatNumber-1].seatStatus="Available";
-            console.log("Available");
+            this.applySeatInfo(this.seatGold3,seatNumber-1,null,null,null,'Available');
+            this.deleteSeatObject(row,seatNumber,'Gold');
           }
         }
         else if(row=='F' && seatType=='gold'){
           if(this.seatGold4[seatNumber-1].seatNumber==null)
           {
-            this.seatGold4[seatNumber-1].seatRow= row;
-            this.seatGold4[seatNumber-1].seatNumber=seatNumber;
-            this.seatGold4[seatNumber-1].seatType='gold';
-            this.seatGold4[seatNumber-1].seatStatus="booked";
-            console.log("selected"); /*selected Enable*/
+            this.applySeatInfo(this.seatGold4, seatNumber-1, row, seatNumber, 'Gold',"booked");
+            this.createSeatObject(row, seatNumber, 'Gold');
           }
           else
           {
-            this.seatGold4[seatNumber-1].seatRow= null;
-            this.seatGold4[seatNumber-1].seatNumber=null;
-            this.seatGold4[seatNumber-1].seatType=null;
-            this.seatGold4[seatNumber-1].seatStatus="Available";
-            console.log("Available");
+            this.applySeatInfo(this.seatGold4,seatNumber-1,null,null,null,'Available');
+            this.deleteSeatObject(row,seatNumber,'Gold');
           }
         }
         else if(row=='G' && seatType=='silver'){
           if(this.seatSilver1[seatNumber-1].seatNumber==null)
           {
-            this.seatSilver1[seatNumber-1].seatRow= row;
-            this.seatSilver1[seatNumber-1].seatNumber=seatNumber;
-            this.seatSilver1[seatNumber-1].seatType='silver';
-            this.seatSilver1[seatNumber-1].seatStatus="booked";
-            console.log("selected"); /*selected Enable*/
+            this.applySeatInfo(this.seatSilver1, seatNumber-1, row, seatNumber, 'Silver',"booked");
+            this.createSeatObject(row, seatNumber, 'Silver');
           }
           else
           {
-            this.seatSilver1[seatNumber-1].seatRow= null;
-            this.seatSilver1[seatNumber-1].seatNumber=null;
-            this.seatSilver1[seatNumber-1].seatType=null;
-            this.seatSilver1[seatNumber-1].seatStatus="Available";
-            console.log("Available");
+            this.applySeatInfo(this.seatSilver1,seatNumber-1,null,null,null,'Available');
+            this.deleteSeatObject(row,seatNumber,'Silver');
           }
         }
         else if(row=='H' && seatType=='silver'){
           if(this.seatSilver2[seatNumber-1].seatNumber==null)
           {
-            this.seatSilver2[seatNumber-1].seatRow= row;
-            this.seatSilver2[seatNumber-1].seatNumber=seatNumber;
-            this.seatSilver2[seatNumber-1].seatType='silver';
-            this.seatSilver2[seatNumber-1].seatStatus="booked";
-            console.log("selected"); /*selected Enable*/
+          this.applySeatInfo(this.seatSilver2, seatNumber-1, row, seatNumber, 'Silver',"booked");
+          this.createSeatObject(row, seatNumber, 'Silver');
           }
           else
           {
-            this.seatSilver2[seatNumber-1].seatRow= null;
-            this.seatSilver2[seatNumber-1].seatNumber=null;
-            this.seatSilver2[seatNumber-1].seatType=null;
-            this.seatSilver2[seatNumber-1].seatStatus="Available";
-            console.log("Available");
+            this.applySeatInfo(this.seatSilver2,seatNumber-1,null,null,null,'Available');
+          this.deleteSeatObject(row,seatNumber,'Silver');
           }
         }
         else if(row=='I' && seatType=='silver'){
           if(this.seatSilver3[seatNumber-1].seatNumber==null)
           {
-            this.seatSilver3[seatNumber-1].seatRow= row;
-            this.seatSilver3[seatNumber-1].seatNumber=seatNumber;
-            this.seatSilver3[seatNumber-1].seatType='silver';
-            this.seatSilver3[seatNumber-1].seatStatus="booked";
-            console.log("selected"); /*selected Enable*/
+            this.applySeatInfo(this.seatSilver3, seatNumber-1, row, seatNumber, 'Silver',"booked");
+            this.createSeatObject(row, seatNumber, 'Silver');
           }
           else
           {
-            this.seatSilver3[seatNumber-1].seatRow= null;
-            this.seatSilver3[seatNumber-1].seatNumber=null;
-            this.seatSilver3[seatNumber-1].seatType=null;
-            this.seatSilver3[seatNumber-1].seatStatus="Available";
-            console.log("Available");
+            this.applySeatInfo(this.seatSilver3,seatNumber-1,null,null,null,'Available');
+          this.deleteSeatObject(row,seatNumber,'Silver');
           }
         }
     }

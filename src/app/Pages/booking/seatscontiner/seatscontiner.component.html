@@ -1,19 +1,17 @@
 <div class="full cotainer">
-  <form  #seatsForm="ngForm">
     <div class="container">
       <div class="movie-container">
         <h5 style="text-align: center;">please select your desired seat</h5>
-        <ul class="showcase"><li><div class="seat"></div>
+        <ul class="showcase"><li><div class="seat Available">1</div>
             <small>Available</small></li>
-          <li><div class="seat booked"></div>
+          <li><div class="seat booked">1</div>
             <small>Selected</small></li>
-          <li><div class="seat occupied"></div>
+          <li><div class="seat occupied">1</div>
             <small>Occupied</small></li>    
         </ul>
     </div>
-      <div class="screen">
-        <h6 style="text-align: center; color: aliceblue;">screen</h6>
-      </div>
+
+      <div class="screen"><h6 style="text-align: center; color: aliceblue;">screen</h6></div>
 
       <small style="color: darkorange;">Premium</small>
 
@@ -102,16 +100,6 @@
            (seat.seatStatus=='booked' ? 'booked':'occupied')">
             {{i+1}}
         </button>
-      </div>
-        
+      </div>      
 </div>
-
-<div class="book">
-  <button class="btn btn-success" [disabled]="!seatsForm.form.valid">Proceed</button>
-</div>
-
-</form>
-<app-seats></app-seats>
-
-
 

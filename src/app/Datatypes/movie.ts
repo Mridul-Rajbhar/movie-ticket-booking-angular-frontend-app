@@ -5,12 +5,12 @@ export class movie{
 
        public movieGenre:string=null;
         public movieName:string=null;
-        public duration:Date=null;
+        public duration:string=null;
         public certificate:string=null;
-          public releaseDate:Date=null;
+          public releaseDate:string=null;
           public description:string=null;
           public imageURL: string = null;
-        public casts:cast[]=new Array();
+        public cast:cast[]=new Array();
         
         constructor(){
     

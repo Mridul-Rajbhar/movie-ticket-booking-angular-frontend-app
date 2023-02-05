@@ -5,8 +5,7 @@ export class seats{
     public seatNumber:number=null;
     public seatType:string=null;
     public seatStatus:string="Available";
-
-
+    
     constructor(){}
 
 }

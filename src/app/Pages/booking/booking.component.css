@@ -5,15 +5,15 @@
 /*for timings slot*/
 .slot {
   display: flex;
-  /* justify-content: space-between;
-  list-style-type: none; */
-  background: blanchedalmond;
-   padding: 20px 50px; 
-  margin-left: 50px;
-  /* margin-right: 50px;
+  justify-content: space-between;
+  list-style-type: none; 
+   background: blanchedalmond;
+  padding: 20px 50px; 
+  margin-left: 500px;
+  margin-right: 500px;
   margin-top: 20px;
-  border-radius: 5px; */
-  color: green;
+  border-radius: 5px;  
+  color: green; 
 }
 
 /*for 2D 3D movie type*/
@@ -51,7 +51,7 @@
   background-color: white;
 }
 .booked {
-  background-color: green;
+  background-color: lawngreen;
 }
 
 .occupied {
@@ -98,10 +98,10 @@
 }
 
 
-/* .container{
-  border: 2px solid black;
+/* .inner{
+  margin: auto;
+  padding: 30px 40px;
 } */
-
 
 .seat {
 
@@ -109,7 +109,7 @@
   width: 30px;
   margin: 5px;
   margin-top: 15px;
-  color: rgb(253, 84, 140);
+  color: lavenderblush;
   border: 3px solid;
   border-radius: 2px;
   padding: 0;
@@ -127,11 +127,12 @@
   cursor: pointer;
   transform: scale(1.2);
 }
+
 .bookingdate{
   align-self: center;
-  margin-left: 50px;
+  margin-left: 600px;
 }
-/*.showcase .seat:not(.occupied):hover {
-  cursor: default;
-  transform: scale(1);
-}*/
+.book{
+  align-self: center;
+  margin-left: 600px;
+}

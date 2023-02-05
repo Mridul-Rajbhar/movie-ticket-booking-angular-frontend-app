@@ -28,6 +28,7 @@ public Ondelete(movieToBeDeleted: movie)
 {
   this.movieService.deleteMovie(movieToBeDeleted.movieName).subscribe(
     (response)=>{
+      alert("Sure! Are you want to delete");
       console.log(response);
       console.log(this.allMovie);
       let movieIndexToBeDeleted:number = this.allMovie.indexOf(movieToBeDeleted);

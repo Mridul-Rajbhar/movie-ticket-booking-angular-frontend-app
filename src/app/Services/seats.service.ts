@@ -15,7 +15,7 @@ url:"http://localhost:8080/api/v1/seats"
   public getSeats():Observable<seats[]>{
     return this.http.get<seats[]>(this.url);
  }
- public postMovie(newSeats:seats):Observable<seats>{
+ public postSeats(newSeats:seats):Observable<seats>{
     return this.http.post<seats>(this.url,newSeats);
  }
 }
