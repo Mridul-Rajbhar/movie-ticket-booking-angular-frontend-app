@@ -1,17 +1,5 @@
-
-<!--<div class="container">
-<app-add-movie></app-add-movie>
-</div class="nav-item nav-link">
-<router-outlet></router-outlet>
-<app-booking></app-booking>-->
-
-
-
-
-<div>
-<a  routerLink='movieDetails'>AddMovie</a>
-<a  routerLink='booking'>Book Tickets</a>
-<a routerLink='deleteMovie'>Deleting movie</a>
+<app-header></app-header>
+<div class="content">
+    <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
-
+<app-footer></app-footer>

@@ -1,5 +1,6 @@
-import { booking } from './../Datatypes/booking';
+
 import { Observable } from 'rxjs';
+import { booking } from './../DataTypes/booking';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -7,16 +8,18 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class BookingService {
-  http:HttpClient;
-  url:"http://localhost:8080/api/v1/bookings"
-    constructor(http:HttpClient){
-      this.http=http;
-    }
-    public getBooking():Observable<booking[]>{
-      return this.http.get<booking[]>(this.url);
-   }
-   public postBooking(newBooking:booking):Observable<booking>{
-      return this.http.post<booking>(this.url,newBooking);
-   }
+  private _http: HttpClient;
+  private _bookingUrl: string = "http://localhost:8080/api/v1/booking";
   
+  constructor(http: HttpClient) {
+    this._http = http;
+   }
+   
+   public getBooking():Observable<booking[]>{
+      return this.http.get<booking[]>(this._bookingUrl);
+   }
+
+   public getBookingById(bookingId: number):Observable<booking>{
+      return this._http.get<booking>(this._bookingUrl+"/" + bookingId);
+   }
 }
