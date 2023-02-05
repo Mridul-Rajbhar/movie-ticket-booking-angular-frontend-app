@@ -1,8 +1,8 @@
 import { NgForm } from '@angular/forms';
-import { cast } from './../../Datatypes/cast';
 import { MovieService } from './../../Services/movie.service';
 import { movie } from './../../Datatypes/movie';
 import { Component } from '@angular/core';
+import { cast } from 'src/app/Datatypes/cast';
 
 @Component({
   selector: 'app-add-movies',
