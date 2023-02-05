@@ -1,5 +1,5 @@
 export class cast{
-    public castName:String = null;
-    public profession:String = null;
+    public castName:string = null;
+    public profession:string = null;
 
 }

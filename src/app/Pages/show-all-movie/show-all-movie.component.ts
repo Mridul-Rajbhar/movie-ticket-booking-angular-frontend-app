@@ -1,6 +1,6 @@
 import { MovieService } from '../../Service/movie.service';
 
-import { movie } from './../../DataTypes/movies';
+import { movies } from '../../DataTypes/movie';
 import { Component } from '@angular/core';
 
 @Component({
@@ -13,9 +13,9 @@ export class ShowAllMovieComponent {
 
   public currentPage:number=0;
   public totalPages:number
-  public totalMovies:movie[]=[];
+  public totalMovies:movies[]=[];
 
-  public allMovie: movie[] = [];
+  public allMovie: movies[] = [];
 
   constructor(private service:MovieService){
   }

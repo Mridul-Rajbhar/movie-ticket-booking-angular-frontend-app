@@ -1,6 +1,6 @@
 import { MovieService } from './../../Service/movie.service';
 
-import { movie } from './../../DataTypes/movies';
+import { movies } from '../../DataTypes/movie';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MovieDetailsComponent {
 
-  public singleMovie:movie; 
+  public singleMovie:movies; 
   public isLoaded: boolean =false;
   public movieName:string;
   
