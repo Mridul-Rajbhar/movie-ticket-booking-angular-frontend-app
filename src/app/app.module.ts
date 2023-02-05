@@ -15,6 +15,9 @@ import { ReviewStarComponent } from './Shared folder/review-star/review-star.com
 import { ReviewCommentComponent } from './Shared folder/review-comment/review-comment.component';
 import { HeaderComponent } from './Shared folder/header/header.component';
 import { FooterComponent } from './Shared folder/footer/footer.component';
+import { MovieFilterPipe } from './pipes/movie-filter.pipe';
+import { ShowAllMovieComponent } from './Pages/show-all-movie/show-all-movie.component';
+import { MovieDetailsComponent } from './Pages/movie-details/movie-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,10 @@ import { FooterComponent } from './Shared folder/footer/footer.component';
     ReviewStarComponent,
     ReviewCommentComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MovieFilterPipe,
+    ShowAllMovieComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
