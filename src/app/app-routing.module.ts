@@ -1,3 +1,5 @@
+import { MovieDetailsComponent } from './Pages/movie-details/movie-details.component';
+import { ShowAllMovieComponent } from './Pages/show-all-movie/show-all-movie.component';
 
 import { HomepageComponent } from './Pages/homepage/homepage.component';
 import { DiscountFormComponent } from './Pages/discount-form/discount-form.component';
@@ -19,7 +21,9 @@ const routes: Routes = [
   {path:"order-history/:orderId/single-order-details", component: SingleOrderDetailsComponent},
   {path:"admin/addMovie", component:AddMoviesComponent},
   {path:"movies/:movieName/booking", component:BookingComponent},
-  {path:"admin/deleteMovie", component: DeleteMoviesComponent}
+  {path:"admin/deleteMovie", component: DeleteMoviesComponent},
+  {path:"movies/", component: ShowAllMovieComponent},
+  {path:"movies/:movieName", component:MovieDetailsComponent}
 ];
 
 @NgModule({

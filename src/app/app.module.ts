@@ -2,7 +2,6 @@ import { MovieService } from './Services/movie.service';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OrderMovieComponent } from './Pages/order-movie/order-movie.component';
@@ -39,7 +38,7 @@ import { AddMoviesComponent } from './Pages/add-movies/add-movies.component';
     FooterComponent,
     MovieFilterPipe,
     ShowAllMovieComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
     BookingComponent,
     SeatscontinerComponent,
     DeleteMoviesComponent,
