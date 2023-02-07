@@ -42,7 +42,7 @@ export class AddMoviesComponent {
     this.submitted = true;
     console.log(this.submitted);
     console.log(this.movieCast);
-    let imageLocalUrl = "/assets/images/Movies/" + this.movieInput.movieName + ".jpg"
+    let imageLocalUrl = "/assets/images/Movies/" + this.movieInput.movieName.replace(/\s/g, "").toLowerCase() + ".jpg"
     this.movieInput.imageURL= imageLocalUrl;
     this.movieInput.cast = this.movieCast;
     this.movieService.postMovie(this.movieInput).subscribe((response)=>{

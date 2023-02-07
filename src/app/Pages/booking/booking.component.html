@@ -1,6 +1,6 @@
 
 <div class="container1">
-  <form #bookingForm="ngForm">
+  <form #bookingForm="ngForm" (change)="checkAllDetailsFilled(bookingForm);">
 
 <div class="form-group">   
 <div class="bookingdate">
@@ -42,7 +42,7 @@
  
   </div><br>
 
-<app-seatscontiner (addSeatEvent)="addSeat($event)" (removeSeatEvent)="removeSeat($event)"></app-seatscontiner> 
+<app-seatscontiner [hidden]="!canSelectSeats" (addSeatEvent)="addSeat($event)" (removeSeatEvent)="removeSeat($event)"></app-seatscontiner> 
 
 <div class="book">
   <button type="submit" (click)="onSubmit(bookingForm)" class="btn btn-success" [disabled]="!bookingForm.form.valid || notSelected">Proceed</button>

@@ -1,10 +1,11 @@
+import { SeatscontinerComponent } from './seatscontiner/seatscontiner.component';
 import { order } from './../../DataTypes/order';
 import { OrderService } from './../../Services/order.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BookingService } from './../../Services/booking.service';
 import { seats } from './../../DataTypes/seats';
 import { booking } from './../../DataTypes/booking';
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -17,17 +18,20 @@ export class BookingComponent {
   private _movieName: string;
   private bookingService:BookingService;
   private orderService: OrderService;
- constructor(private router: Router, BookingService:BookingService,
-    private _activatedRoute: ActivatedRoute, orderService: OrderService){
-  this.bookingService=this.bookingService;
-  this.orderService = this.orderService;
- }
 
   bookingInput: booking=new booking();
   notSelected: boolean = true;
-  public selectedSeats: seats[] = [];
-  // public canSelectSeats: boolean= false;
+  canSelectSeats: boolean = false;
 
+  @ViewChild(SeatscontinerComponent) child: SeatscontinerComponent;
+
+  public selectedSeats: seats[] = []; // seats which current user will select
+
+ constructor(private router: Router, bookingService:BookingService,
+    private _activatedRoute: ActivatedRoute, orderService: OrderService){
+  this.bookingService=bookingService;
+  this.orderService = this.orderService;
+ }
   ngOnInit(){
     this._activatedRoute.paramMap.subscribe((response)=>
         {
@@ -59,7 +63,24 @@ export class BookingComponent {
         this.notSelected=false;
       }
   }
-
+  checkAllDetailsFilled(data: NgForm){
+    console.log(data.value);
+    if(data.value.bookingDate!=null && data.value.bookingTime!=null && data.value.movieLanguage!=null && data.value.movieFormat!=null){
+        this.bookingService.getSeatsOfParticularBooking(this._movieName, data.value.movieLanguage, data.value.bookingDate,
+           data.value.bookingTime, data.value.movieFormat).subscribe(
+            (response: seats[])=>{
+              console.log(response);
+              this.canSelectSeats = true;
+              this.child.setOccupiedSeats(response);
+            }
+           )
+    }
+    else
+    {
+      this.canSelectSeats = false;
+      console.log(this.canSelectSeats);
+    }
+  }
   onSubmit(data:NgForm){
     console.log(data.value);
     // this.orderService.bookingForm = this.bookingInput;
