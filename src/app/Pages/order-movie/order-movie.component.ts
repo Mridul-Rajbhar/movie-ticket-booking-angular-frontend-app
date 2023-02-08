@@ -7,7 +7,7 @@ import { booking } from './../../DataTypes/booking';
 import { movies } from './../../DataTypes/movie';
 import { order } from './../../DataTypes/order';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-movie',
@@ -18,6 +18,7 @@ export class OrderMovieComponent {
   private _userId: number = parseInt(localStorage.getItem('userId'));
   private _activatedRoute: ActivatedRoute;
   private _movieNameToBeFounded: string;
+  private _router: Router;
   
   //declare services
   private _movieService: MovieService;
@@ -42,8 +43,7 @@ export class OrderMovieComponent {
   public discounts:discount[] = new Array(0);
 
   constructor(activatedRoute: ActivatedRoute, movieService: MovieService,
-    discountService: DiscountService,
-    orderService: OrderService){
+    discountService: DiscountService, orderService: OrderService, router: Router){
 
     console.log(this._userId);
 
@@ -144,7 +144,9 @@ export class OrderMovieComponent {
        this._movieNameToBeFounded).subscribe(
       (response)=>{
         console.log(response);
+        this._router.navigate(['order-history/'+ this.orderToPlaced.orderId +'/single-order-details/']);
       }
     )
+
   }
 }
