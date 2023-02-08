@@ -56,6 +56,7 @@ export class OrderMovieComponent {
     this._discountService = discountService;
     this._orderService = orderService;
     this.bookingMovie = history.state.bookingInput;
+    this._router=router;
 
     // this._bookingDetails = history.state.data;
     // console.log(this._bookingDetails);
@@ -144,7 +145,7 @@ export class OrderMovieComponent {
        this._movieNameToBeFounded).subscribe(
       (response)=>{
         console.log(response);
-        this._router.navigate(['order-history/'+ this.orderToPlaced.orderId +'/single-order-details/']);
+        this._router.navigate(['home']);
       }
     )
 
